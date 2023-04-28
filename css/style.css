@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.body-content{
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    padding: 5px;
+    width:95%;
+}
+
+.cont{
+    border: 1px solid rgb(248, 233, 14);
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.cont i{
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.cont input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+
+.cont input:focus{
+    background-color: rgba(63, 65, 63, 0.267);
+    color: white;
+}
+
+.dic{
+    padding: 5px;
+}
+
+.word{
+    text-transform: uppercase;
+}
+
+.meanings h3{
+    text-transform: capitalize;
+}
+
+.meanings p{
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.meaning-part{
+    margin-left: 45px;
+}
+
+.meaning-part input{
+    padding: 5px;
+    background-color: transparent;
+    width: 98%;
+    border: none;
+    pointer-events: none;
+}
+
+h3{
+    font-size: 20px;
+}
+
+.example .exp1,.exp2{
+    color: brown;
+    text-decoration: underline;
+}
+
+.meaning-part .ant1,.ant2,.syn1,.syn2{
+    margin-left: 20px;
+    list-style: none;
+    display: flex;
+}
+
+.exp1,.exp2{
+    font-weight: bold;
+}
