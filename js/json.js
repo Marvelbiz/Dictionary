@@ -30,6 +30,8 @@ let lab5 = document.querySelector('.lab5');
 let lab6 = document.querySelector('.lab6');
 let lab7 = document.querySelector('.lab7');
 let lab8 = document.querySelector('.lab8');
+let body = document.querySelector('.body');
+
 
 search.addEventListener('click',function(){
         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
@@ -122,7 +124,7 @@ search.addEventListener('click',function(){
                         lab6.textContent=`Synonym(s):`
                         lab7.textContent=`Antonym(s):`
                         lab8.textContent=`Synonym(s):`
-                } else{
+                }else{
                         word.textContent = myData[0]["word"];
                         phonetic.textContent = myData[0]["phonetic"];
                         prt.textContent=myData[0]["meanings"][0]["partOfSpeech"];
@@ -155,5 +157,18 @@ search.addEventListener('click',function(){
                         lab8.textContent=``
                 }
                 console.log(myData)
-        }).catch(err => console.log(err));
+        }).catch(err => {
+                if(TypeError={}){
+                        word.style.textTransform = "Capitalize";
+                        word.style.fontWeight = "100";
+                        word.textContent = `So Sorry!!! 
+                        We are unable to find the word "${input.value}" 😣
+                        please check yor connection or search for word we 
+                        can find and tap on the close button to continue`;
+                        phonetic.textContent = "";
+                        body.style.display = "none";
+                }
+
+                console.log(err)
+        });
 })
