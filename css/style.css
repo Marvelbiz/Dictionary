@@ -86,17 +86,15 @@ h3{
     font-size: 20px;
 }
 
-.example .exp1,.exp2{
+.example .exp1,.exp2,.exp3,.exp4{
     color: brown;
     text-decoration: underline;
 }
 
-.meaning-part .ant1,.ant2,.syn1,.syn2{
+.meaning-part .ant1,.ant2,.ant3,.ant4,.syn1,.syn2,.syn3,.syn4{
     margin-left: 20px;
-    list-style: none;
-    display: flex;
 }
 
-.exp1,.exp2{
+.exp1,.exp2,.exp3{
     font-weight: bold;
 }
