@@ -31,6 +31,7 @@ let lab6 = document.querySelector('.lab6');
 let lab7 = document.querySelector('.lab7');
 let lab8 = document.querySelector('.lab8');
 let body = document.querySelector('.body');
+let audio = document.querySelector('.audio');
 
 
 search.addEventListener('click',function(){
@@ -38,7 +39,28 @@ search.addEventListener('click',function(){
         .then(data => {
         return data.json()
         }).then(myData => {
+                audio.addEventListener("click",function(){
+
+                        if(myData[0]["phonetics"].length === 1){
+                                let audioUrl = new Audio(myData[0]["phonetics"][0]["audio"]);
+                                audioUrl.play();
+                        } 
+                        else if(myData[0]["phonetics"].length === 2){
+                               if(myData[0]["phonetics"][0]["audio"] === ""){
+                                let audioUrl2 = new Audio(myData[0]["phonetics"][1]["audio"]);
+                                audioUrl2.play();
+                               }else{
+                                let audioUrl2 = new Audio(myData[0]["phonetics"][0]["audio"]);
+                                audioUrl2.play();
+                               }
+                        }
+                         else if(myData[0]["phonetics"].length >= 3){
+                                let audioUrl = new Audio(myData[0]["phonetics"][2]["audio"]);
+                                audioUrl.play();
+                        }
+                });
                 if(myData[0]["meanings"].length=== 2){
+
                 word.textContent = myData[0]["word"];
                 phonetic.textContent = myData[0]["phonetic"];
                 prt.textContent=myData[0]["meanings"][0]["partOfSpeech"];
@@ -68,7 +90,7 @@ search.addEventListener('click',function(){
                 }
                 
                 else if(myData[0]["meanings"].length === 3){
-
+                        
                 word.textContent = myData[0]["word"];
                 phonetic.textContent = myData[0]["phonetic"];
                 prt.textContent=myData[0]["meanings"][0]["partOfSpeech"];
