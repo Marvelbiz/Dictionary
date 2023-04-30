@@ -34,7 +34,7 @@ let body = document.querySelector('.body');
 let audio = document.querySelector('.audio');
 
 
-search.addEventListener('click',function(){
+function myDictionary (){
         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
         .then(data => {
         return data.json()
@@ -55,8 +55,18 @@ search.addEventListener('click',function(){
                                }
                         }
                          else if(myData[0]["phonetics"].length >= 3){
+                                let audioUrl = new Audio(myData[0]["phonetics"][0]["audio"]);
+                                audioUrl.play();
+                                if(myData[0]["phonetics"][0]["audio"] === ""){
+                                let audioUrl = new Audio(myData[0]["phonetics"][1]["audio"]);
+                                audioUrl.play();
+                                } else if(myData[0]["phonetics"][1]["audio"] === ""){
                                 let audioUrl = new Audio(myData[0]["phonetics"][2]["audio"]);
                                 audioUrl.play();
+                                } else{
+                                let audioUrl = new Audio(myData[0]["phonetics"][3]["audio"]);
+                                audioUrl.play();    
+                                }
                         }
                 });
                 if(myData[0]["meanings"].length=== 2){
@@ -193,4 +203,14 @@ search.addEventListener('click',function(){
 
                 console.log(err)
         });
+}
+
+
+search.addEventListener('click', myDictionary);
+input.addEventListener('keydown',function(e){
+        if(e.keyCode === 13){
+                myDictionary();
+                e.preventDefault();
+        return false;
+        }
 })
